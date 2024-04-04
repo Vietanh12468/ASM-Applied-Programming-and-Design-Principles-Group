@@ -1,0 +1,78 @@
+﻿@model Class
+@{
+    ViewData["Title"] = "Create Class";
+}
+<div class="container main-container w-70">
+    <div class="m-3">
+        <h1>Search</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                @using (Html.BeginForm("SearchUser", "Class"))
+                {
+                    <div class="input-group-append">
+                        <select class="btn btn-secondary" onchange="setSearch(this.value)">
+                            <option value="Student">Student</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Teacher">Teacher</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="hidden" id="searchType" name="searchType" value="Student" />
+                        <input type="text" class="form-control" name="keyword" placeholder="Enter your search query" required="required" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>DOB</th>
+                                <th>Major</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in ViewBag.users)
+                            {
+                                <tr>
+                                    <td>@user.fullName</td>
+                                    <td>@user.DOB</td>
+                                    <td>@user.major</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+            <div class="col-sm-6">
+                @using (Html.BeginForm("SearchUser", "Class"))
+                {
+                    <div class="form-group row p-2">
+                        @Html.LabelFor(m => m.name, "Name:", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.name, new { @class = "form-control", @placeholder = "Name", @id = "name", @name = "name", required = "required", type = "text" })
+                        </div>
+                    </div>
+                    <div class="form-group row p-2">
+                        @Html.LabelFor(m => m.teacher, "Teacher:", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.teacher, new { @class = "form-control", @placeholder = "Teacher", @id = "teacher", @name = "teacher", required = "required", type = "text" })
+                        </div>
+                    </div>
+                    <div class="form-group row p-2">
+                        @Html.LabelFor(m => m.course, "Course:", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.course, new { @class = "form-control", @placeholder = "Course", @id = "course", @name = "course", required = "required", type = "text" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setSearch(value) {
+        document.getElementById("searchType").value = value;
+    }
+</script>

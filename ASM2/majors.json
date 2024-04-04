@@ -1,0 +1,29 @@
+[
+  {
+    "name": "IT",
+    "courses": [
+      {
+        "name": "Introduction to Programming",
+        "credits": 3
+      }
+    ]
+  },
+  {
+    "name": "Business",
+    "courses": [
+      {
+        "name": "Financial Accounting",
+        "credits": 4
+      }
+    ]
+  },
+  {
+    "name": "Designer",
+    "courses": [
+      {
+        "name": "Graphic Design Fundamentals",
+        "credits": 3
+      }
+    ]
+  }
+]

@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var user in Model)
+            @foreach (var user in ViewBag.users)
             {
                 <tr>
                     <td>@user.fullName</td>
