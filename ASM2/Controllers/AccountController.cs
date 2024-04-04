@@ -1,30 +1,35 @@
 ﻿using ASM2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace ASM2.Controllers
 {
     public class AccountController : Controller
     {
+        static List<User>? users = new List<User>();
         private readonly ILogger<AccountController> _logger;
 
         public AccountController(ILogger<AccountController> logger)
         {
             _logger = logger;
         }
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
+        public IActionResult Register(User user)
         {
-            // Process the registration data here
-            // You can access the form values from the `model` parameter
-
-            // Redirect to a success page or perform other actions
-            return RedirectToAction("Register");
+            users.Add(user);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(users, options);
+            using (StreamWriter writer = new StreamWriter("users.json")) { 
+                writer.Write(jsonString);
+            }
+            return Content(jsonString);
         }
 
         public IActionResult RegistrationSuccess()
@@ -33,14 +38,4 @@ namespace ASM2.Controllers
         }
     }
 
-    public class RegisterViewModel
-    {
-        public string Email { get; set; }
-        public string FullName { get; set; }
-        public string Phone { get; set; }
-        public DateTime DOB { get; set; }
-        public string Gender { get; set; }
-        public string Role { get; set; }
-        public string Major { get; set; }
-    }
 }

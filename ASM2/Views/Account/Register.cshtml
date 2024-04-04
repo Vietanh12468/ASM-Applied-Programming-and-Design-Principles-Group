@@ -1,4 +1,6 @@
-﻿@{
+﻿@model User
+
+@{
     ViewData["Title"] = "Register";
 }
 
@@ -6,50 +8,74 @@
     <div class="m-3">
         <h1>Register</h1>
         <div>
-            <form method="post" action="/Account/Register">
+            @using (Html.BeginForm("Register", "Account"))
+            {
                 <div class="form-group row p-2">
-                    <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                    @Html.LabelFor(m => m.email,"Email:", new { @class = "col-sm-2 col-form-label"})
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", @placeholder = "Email", @id = "email", @name = "email", @required = "required", @type = "text",})
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    @Html.LabelFor(m => m.fullName, "Name:", new { @class = "col-sm-2 col-form-label"})
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.fullName, new { @class = "form-control", @placeholder = "Full Name", @id = "fullName", @name = "fullName", @required = "required", @type = "text" })
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    @Html.LabelFor(m => m.phone, "Phone:", new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.phone, new { @class = "form-control", @placeholder = "Phone", @id = "phone", @name = "phone", required = "required", type = "tel" })
+                    </div>
+                 </div>
+
+                <div class="form-group row p-2">
+                    @Html.LabelFor(m => m.gender, "Gender:", new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(m => m.gender, new SelectList(new[]{
+                            new SelectListItem {Text = "Male", Value = "male"},
+                            new SelectListItem {Text ="Female", Value ="female"}
+                        }, "Value", "Text"), new { @class = "form-control", @id = "gender", @name = "gender", @required = "requrired" })
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    @Html.LabelFor(m => m.DOB, "DOB:", new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "DOB", @id = "DOB", @name = "DOB", required = "required", type = "date" })
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    @Html.LabelFor(m => m.major, "Role:", new {@class="col-sm-2 col-form-label"})
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(m => m.role, new SelectList(new[]{
+                            new SelectListItem {Text = "Student", Value = "student"},
+                            new SelectListItem {Text ="Teacher", Value ="teacher"},
+                            new SelectListItem {Text ="Admin", Value ="admin"}
+                        }, "Value", "Text"), new { @class = "form-control", @id = "role", @name = "role", @required = "requrired" })
                     </div>
                 </div>
                 <div class="form-group row p-2">
-                    <label for="fullName" class="col-sm-2 col-form-label">Full Name:</label>
+                    @Html.LabelFor(m => m.major, "Major:", new { @class = "col-sm-2 col-form-label" })
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        @Html.DropDownListFor(m => m.major, new SelectList(new[]{
+                            new SelectListItem {Text = "Designer", Value = "designer"},
+                            new SelectListItem {Text ="IT", Value ="it"},
+                            new SelectListItem {Text ="Bussiness", Value ="bussiness"}
+                        }, "Value", "Text"), new { @class = "form-control", @id = "major", @name = "major", @required = "requrired" })
                     </div>
                 </div>
-                <div class="form-group row p-2">
-                    <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
-                    <div class="col-sm-10">
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
-                    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </div>
-                <div class="form-group row p-2">
-                    <label for="dob" class="col-sm-2 col-form-label">Date of Birth:</label>
-                    <div class="col-sm-10">
-                        <input type="date" class="form-control" id="dob" name="dob" required>
-                    </div>
-                </div>
-                <div class="form-group row p-2">
-                    <label for="gender" class="col-sm-2 col-form-label">Gender:</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="gender" name="gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row p-2">
-                    <label for="role" class="col-sm-2 col-form-label">Role:</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="role" name="role" required>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    </div>
-                </div>
+
+            }
+
+@* 
+
                 <div class="form-group row p-2">
                     <label for="major" class="col-sm-2 col-form-label">Major:</label>
                     <div class="col-sm-10">
@@ -65,7 +91,7 @@
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>
-            </form>
+            </form> *@
         </div>
     </div>
 </div>
