@@ -1,0 +1,44 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Search";
+}
+<div class="container main-container w-70">
+    <div class="m-3">
+        <h1>Search</h1>
+        <form action="@Url.Action("Search", "Account")" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="keyword" placeholder="Enter your search query" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Role</th>
+                <th>Major</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.fullName</td>
+                    <td>@user.email</td>
+                    <td>@user.phone</td>
+                    <td>@user.DOB</td>
+                    <td>@user.gender</td>
+                    <td>@user.role</td>
+                    <td>@user.major</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

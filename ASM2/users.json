@@ -1,11 +1,119 @@
 [
   {
-    "email": "vietanh12468@yahoo.com",
-    "fullName": "Viet Anh Nguyen",
+    "email": "sadsa@gad.com",
+    "fullName": "adsq",
     "phone": "0904612256",
-    "DOB": "2024-04-24T00:00:00",
-    "gender": "male",
+    "DOB": "2024-04-23T00:00:00",
+    "gender": "female",
     "role": "student",
-    "major": "it"
+    "major": "designer"
+  },
+  {
+    "email": "sadsa@gad.com",
+    "fullName": "adsq",
+    "phone": "0904612256",
+    "DOB": "2024-04-23T00:00:00",
+    "gender": "female",
+    "role": "student",
+    "major": "designer"
+  },
+  {
+    "email": "sadsa@gad.com",
+    "fullName": "adsq",
+    "phone": "0904612256",
+    "DOB": "2024-04-22T00:00:00",
+    "gender": "female",
+    "role": "student",
+    "major": "designer"
+  },
+  {
+    "email": "sadsa@gad.com",
+    "fullName": "adsq",
+    "phone": "0904612256",
+    "DOB": "2024-04-30T00:00:00",
+    "gender": "female",
+    "role": "student",
+    "major": "designer"
+  },
+  {
+    "email": "ssa@gad.com",
+    "fullName": "adsq",
+    "phone": "0904612256",
+    "DOB": "2024-04-30T00:00:00",
+    "gender": "female",
+    "role": "student",
+    "major": "designer"
+  },
+  {
+    "email": "ssa@gad.com",
+    "fullName": "adsq",
+    "phone": "0904612256",
+    "DOB": "2024-04-30T00:00:00",
+    "gender": "female",
+    "role": "student",
+    "major": "designer"
+  },
+  {
+    "email": "user1@example.com",
+    "fullName": "John Doe",
+    "phone": "1234567890",
+    "DOB": "1985-01-01T00:00:00",
+    "gender": "Male",
+    "role": "Student",
+    "major": "Computer Science"
+  },
+  {
+    "email": "user2@example.com",
+    "fullName": "Jane Smith",
+    "phone": "9876543210",
+    "DOB": "1990-05-15T00:00:00",
+    "gender": "Female",
+    "role": "Teacher",
+    "major": "English Literature"
+  },
+  {
+    "email": "user4@example.com",
+    "fullName": "Emily Brown",
+    "phone": "3216549870",
+    "DOB": "1992-03-10T00:00:00",
+    "gender": "Female",
+    "role": "Teacher",
+    "major": "History"
+  },
+  {
+    "email": "user7@example.com",
+    "fullName": "Christopher Martinez",
+    "phone": "9998887777",
+    "DOB": "1993-12-18T00:00:00",
+    "gender": "Male",
+    "role": "Student",
+    "major": "Biology"
+  },
+  {
+    "email": "user9@example.com",
+    "fullName": "Daniel Anderson",
+    "phone": "7777777777",
+    "DOB": "1989-04-05T00:00:00",
+    "gender": "Male",
+    "role": "Student",
+    "major": "Psychology"
+  },
+  {
+    "email": "user10@example.com",
+    "fullName": "Olivia Clark",
+    "phone": "1112223333",
+    "DOB": "1996-08-12T00:00:00",
+    "gender": "Female",
+    "role": "Teacher",
+    "major": "Art"
+  },
+  {
+    "email": "user12@example.com",
+    "fullName": "Grace Walker",
+    "phone": "9999999999",
+    "DOB": "1988-10-30T00:00:00",
+    "gender": "Female",
+    "role": "Teacher",
+    "major": "Geography"
   }
 ]
