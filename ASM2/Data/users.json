@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "email": "1212@21321.sa",
+    "fullName": "21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-12",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 1,
+    "email": "1212@21321.sa",
+    "fullName": "21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-20",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 1,
+    "email": "1212@21321.sa",
+    "fullName": "21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-19",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 2,
+    "email": "1212@21321.sa",
+    "fullName": "21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-07",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 3,
+    "email": "1212@21321.sa",
+    "fullName": "21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-20",
+    "gender": "Female",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 4,
+    "email": "1212@21321.sa",
+    "fullName": "sads",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-10",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 5,
+    "email": "1212@21321.sa",
+    "fullName": "sads",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-04",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  },
+  {
+    "id": 6,
+    "email": "1212@21321.sad",
+    "fullName": "sadssad21",
+    "phone": "\u002B84904612256",
+    "DOB": "2024-04-04",
+    "gender": "Male",
+    "role": "Student",
+    "major": "IT"
+  }
+]

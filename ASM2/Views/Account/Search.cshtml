@@ -1,5 +1,4 @@
-﻿@model IEnumerable<User>
-@{
+﻿@{
     ViewData["Title"] = "Search";
 }
 <div class="container main-container w-70">
@@ -17,6 +16,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -26,10 +26,11 @@
                 <th>Major</th>
             </tr>
         </thead>
-        <tbody>
+@*         <tbody>
             @foreach (var user in ViewBag.users)
             {
                 <tr>
+                    <td>@user.id</td>
                     <td>@user.fullName</td>
                     <td>@user.email</td>
                     <td>@user.phone</td>
@@ -39,6 +40,6 @@
                     <td>@user.major</td>
                 </tr>
             }
-        </tbody>
+        </tbody> *@
     </table>
 </div>

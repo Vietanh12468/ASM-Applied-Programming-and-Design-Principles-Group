@@ -1,0 +1,102 @@
+﻿
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container main-container w-50">
+    <div class="m-3">
+        <h1>Register</h1>
+        <div>
+            @using (Html.BeginForm("Create", "Account"))
+            {
+                <div class="form-group row p-2">
+                    <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" placeholder="Email" id="email" name="email" required="required" type="text" />
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    <label for="fullname" class="col-sm-2 col-form-label">FullName:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" placeholder="Full Name" id="fullName" name="fullName" required="required" type="text" />
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" placeholder="Phone" id="phone" name="phone" required="required" type="tel" />
+                    </div>
+                </div>
+
+                <input type="hidden" id="gender" name="gender" value="Male" />
+                <div class="form-group row p-2">
+                    <label for="gender" class="col-sm-2 col-form-label">Gender:</label>
+                    <div class="col-sm-10">
+                        <select class = "form-control" onchange="setGender(this.value)">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row p-2">
+                    <label for="DOB" class="col-sm-2 col-form-label">DOB:</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" placeholder="DOB" id="DOB" name="DOB" required="required"  />
+                    </div>
+                </div>
+
+                <input type="hidden" id="role" name="role" value="Student" />
+                <div class="form-group row p-2">
+                    <label for="role" class="col-sm-2 col-form-label">Role:</label>
+                    <div class="col-sm-10">
+                        <select class ="form-control" onchange="setRole(this.value)">
+                            <option value="Student">Student</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Teacher">Teacher</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="majorField" style="display: none;">
+                    <input type="hidden" id="major" name="major" value="IT"/>
+                    <div class="form-group row p-2">
+                        <label for="major" class="col-sm-2 col-form-label">Major:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" onchange="setMajor(this.value)">
+                                @foreach (var major in ViewBag.majors)
+                                {
+                                    <option value="@major.name" >@major.name </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script>
+    function setRole(value) {
+        document.getElementById("role").value = value;
+        if (value === 'Student') {
+            document.getElementById('majorField').style.display = 'block';
+        } else {
+            document.getElementById('majorField').style.display = 'none';
+        }
+    }
+    function setMajor(value) {
+        document.getElementById('major').value = value;
+    }
+    function setGender(value) {
+        document.getElementById('gender').value = value;
+    }
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

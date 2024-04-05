@@ -1,0 +1,29 @@
+[
+  {
+    "id": 0,
+    "DOB": "2024-04-19",
+    "fullName": "21",
+    "email": "1212@21321.sa",
+    "phone": "\u002B84904612256",
+    "gender": "Female",
+    "major": "Designer"
+  },
+  {
+    "id": 0,
+    "DOB": "2024-04-05",
+    "fullName": "21",
+    "email": "1212@21321.sa",
+    "phone": "\u002B84904612256",
+    "gender": "Male",
+    "major": "Business"
+  },
+  {
+    "id": 0,
+    "DOB": "2024-04-10",
+    "fullName": "21",
+    "email": "1212@21321.sa",
+    "phone": "\u002B84904612256",
+    "gender": "Female",
+    "major": null
+  }
+]

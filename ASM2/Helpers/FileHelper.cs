@@ -1,6 +1,7 @@
 ﻿using ASM2.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text.Json;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
@@ -19,5 +20,19 @@ public static class FileHelper
         {
             writer.Write(jsonString);
         }
+    }
+    public static int ReadLastId<T>(List<T>? list)
+    {
+        if (list != null && list.Count > 0)
+        {
+            T lastElement = list[list.Count - 1];
+            PropertyInfo idProperty = typeof(T).GetProperty("id");
+            if (idProperty != null && idProperty.PropertyType == typeof(int))
+            {
+                int lastId = (int)idProperty.GetValue(lastElement);
+                return lastId;
+            }
+        }
+        return 0;
     }
 }

@@ -14,7 +14,7 @@ namespace ASM2.Helpers
         }
         protected override bool Compare(User user, string keyword, string type)
         {
-            if (user.fullName != null && user.fullName.ToLower().Contains(keyword.ToLower()) && user.role == type)
+            if (user.fullName != null && user.fullName.ToLower().Contains(keyword.ToLower()))
             {
                 return true;
             }
