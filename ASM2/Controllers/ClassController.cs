@@ -15,14 +15,14 @@ namespace ASM2.Controllers
             ViewBag.Users = users;
             return View();
         }
-        [HttpPost]
+/*        [HttpPost]
         public IActionResult SearchUser(string keyword, string searchType)
         {
             UserSearchHelper searchHelper = new UserSearchHelper();
             List<User> searchResult = searchHelper.SearchList(users, keyword, searchType);
             ViewBag.Users = searchResult;
             return View("Create");
-        }
+        }*/
         [HttpPost]
         public IActionResult Create(Class cls)
         {

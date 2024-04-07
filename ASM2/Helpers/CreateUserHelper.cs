@@ -1,32 +1,29 @@
 ﻿using ASM2.Models;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace ASM2.Helpers
 {
     public static class CreateUserHelper
     {
-        public static void CreateUser<T>(List<T>? list, string email, string fullname, string phone, string gender, DateOnly DOB, T obj, string filePath) where T : User
+        public static void CreateUser<T>(string email, string fullname, string phone, string gender, DateOnly DOB, string filePath) where T : User, new()
         {
-            obj.id = FileHelper.ReadLastId<T>(list);
-            obj.DOB = DOB;
-            obj.fullName = fullname;
-            obj.email = email;
-            obj.phone = phone;
-            obj.gender = gender;
-            list.Add(obj);
-            FileHelper.AddToList(list, filePath);
+            List<T> listUsers = FileHelper.ReadFileList<T>(filePath);
+            int id = FileHelper.ReadLastId<T>(listUsers) + 1;
+            T user = new T();
+            user.CreateUser(id, DOB, fullname, email, phone, gender);
+            listUsers.Add(user);
+            FileHelper.AddToList(listUsers, filePath);
         }
-        public static void CreateUser<T>(List<T>? list, string email, string fullname, string phone, string gender, DateOnly DOB, string major, T obj, string filePath) where T : Student
+        public static void CreateUser<T>(string email, string fullname, string phone, string gender, DateOnly DOB, string major, string filePath) where T : Student, new()
         {
-            obj.id = FileHelper.ReadLastId<T>(list);
-            obj.DOB = DOB;
-            obj.fullName = fullname;
-            obj.email = email;
-            obj.phone = phone;
-            obj.gender = gender;
-            obj.major = major;
-            list.Add(obj);
-            FileHelper.AddToList(list, filePath);
+            List<T> listUsers = FileHelper.ReadFileList<T>(filePath);
+            int id = FileHelper.ReadLastId<T>(listUsers) + 1;
+            T user = new T();
+            user.CreateUser(id, DOB, fullname, email, phone, gender);
+            user.major = major;
+            listUsers.Add(user);
+            FileHelper.AddToList(listUsers, filePath);
         }
     }
 }

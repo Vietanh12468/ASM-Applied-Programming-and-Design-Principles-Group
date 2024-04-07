@@ -14,6 +14,7 @@
             }
             return result;
         }
+
         public List<T> SearchList(List<T>? list, string keyword, string type)
         {
             List<T> result = new List<T>();

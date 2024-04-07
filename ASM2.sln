@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASM2", "ASM2\ASM2.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIMS_Demo", "C:\Users\Viet Anh\source\repos\MVCUnitTest\SIMS_Demo\SIMS_Demo.csproj", "{3297CCFD-26A7-4357-BC3D-E7E2A8495B8C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIMS_TEST", "C:\Users\Viet Anh\source\repos\MVCUnitTest\SIMS_TEST\SIMS_TEST.csproj", "{E938EFD2-E5CA-44DA-96D2-AFE200C7DD4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{418227F4-0681-42BC-9E58-E361E70C5E84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3297CCFD-26A7-4357-BC3D-E7E2A8495B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3297CCFD-26A7-4357-BC3D-E7E2A8495B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3297CCFD-26A7-4357-BC3D-E7E2A8495B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E938EFD2-E5CA-44DA-96D2-AFE200C7DD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E938EFD2-E5CA-44DA-96D2-AFE200C7DD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E938EFD2-E5CA-44DA-96D2-AFE200C7DD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E938EFD2-E5CA-44DA-96D2-AFE200C7DD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418227F4-0681-42BC-9E58-E361E70C5E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418227F4-0681-42BC-9E58-E361E70C5E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418227F4-0681-42BC-9E58-E361E70C5E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418227F4-0681-42BC-9E58-E361E70C5E84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,17 @@
     <div class="m-3">
         <h1>Search</h1>
         <form action="@Url.Action("Search", "Account")" method="post">
+            <input type="hidden" id="role" name="role" value="Student" />
+            <div class="form-group row p-2">
+                <label for="role" class="col-sm-2 col-form-label">Role:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" onchange="setSearch(this.value)">
+                        <option value="Student">Student</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+                </div>
+            </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="keyword" placeholder="Enter your search query" />
                 <div class="input-group-append">
@@ -22,11 +33,9 @@
                 <th>Phone</th>
                 <th>DOB</th>
                 <th>Gender</th>
-                <th>Role</th>
-                <th>Major</th>
             </tr>
         </thead>
-@*         <tbody>
+        <tbody>
             @foreach (var user in ViewBag.users)
             {
                 <tr>
@@ -36,10 +45,14 @@
                     <td>@user.phone</td>
                     <td>@user.DOB</td>
                     <td>@user.gender</td>
-                    <td>@user.role</td>
-                    <td>@user.major</td>
                 </tr>
             }
-        </tbody> *@
+        </tbody>
     </table>
 </div>
+
+<script>
+    function setSearch(value) {
+        document.getElementById("role").value = value;
+    }
+</script>

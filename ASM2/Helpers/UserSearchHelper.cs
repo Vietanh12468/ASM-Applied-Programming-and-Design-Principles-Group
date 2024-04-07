@@ -2,9 +2,9 @@
 
 namespace ASM2.Helpers
 {
-    public class UserSearchHelper : SearchHelper<User>
+    public class UserSearchHelper<T> : SearchHelper<T> where T : User
     {
-        protected override bool Compare(User user, string keyword)
+        protected override bool Compare(T user, string keyword)
         {
             if (user.fullName != null && user.fullName.ToLower().Contains(keyword.ToLower()))
             {
@@ -12,7 +12,7 @@ namespace ASM2.Helpers
             }
             return false;
         }
-        protected override bool Compare(User user, string keyword, string type)
+        protected override bool Compare(T user, string keyword, string type)
         {
             if (user.fullName != null && user.fullName.ToLower().Contains(keyword.ToLower()))
             {
