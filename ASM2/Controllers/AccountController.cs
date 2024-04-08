@@ -1,6 +1,7 @@
 ﻿using ASM2.Helpers;
 using ASM2.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Numerics;
@@ -70,6 +71,26 @@ namespace ASM2.Controllers
                     List<Student> searchResultStudent = searchHelperStudent.SearchList(students, keyword);
                     ViewBag.users = searchResultStudent;
                     return View();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id, string typeObj)
+        {
+            switch (typeObj)
+            {
+                case "Teacher":
+                    DeleteHelper<Teacher> deleteHelperTeacher = new DeleteHelper<Teacher>();
+                    deleteHelperTeacher.DeleteObj("Data/teachers.json", id);
+                    return RedirectToAction("Search");
+                case "Admin":
+                    DeleteHelper<Admin> deleteHelperAdmin = new DeleteHelper<Admin>();
+                    deleteHelperAdmin.DeleteObj("Data/admins.json", id);
+                    return RedirectToAction("Search");
+                default:
+                    DeleteHelper<Student> deleteHelperStudent = new DeleteHelper<Student>();
+                    deleteHelperStudent.DeleteObj("Data/students.json", id);
+                    return RedirectToAction("Search");
             }
         }
     }

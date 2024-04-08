@@ -33,6 +33,7 @@
                 <th>Phone</th>
                 <th>DOB</th>
                 <th>Gender</th>
+                <th>Action</th> <!-- New column for delete button -->
             </tr>
         </thead>
         <tbody>
@@ -45,6 +46,12 @@
                     <td>@user.phone</td>
                     <td>@user.DOB</td>
                     <td>@user.gender</td>
+                    <td>
+                        <form method="post" action="@Url.Action("Delete", "Account")">
+                            <input type="hidden" id="id" name="id" value="@user.id" />
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

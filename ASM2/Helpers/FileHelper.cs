@@ -35,4 +35,30 @@ public static class FileHelper
         }
         return 0;
     }
+
+    public static T FindObj<T>(List<T>? list, int id)
+    {
+        if (list == null)
+        {
+            return default(T);
+        }
+
+        PropertyInfo idProperty = typeof(T).GetProperty("id");
+        if (idProperty == null || idProperty.PropertyType != typeof(int))
+        {
+            return default(T);
+        }
+
+        foreach (var obj in list)
+        {
+            var objId = Convert.ToInt32(idProperty.GetValue(obj));
+            if (objId == id)
+            {
+                return obj;
+            }
+        }
+
+        return default(T);
+    }
+
 }
