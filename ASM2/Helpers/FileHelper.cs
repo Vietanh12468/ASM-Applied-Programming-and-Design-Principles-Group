@@ -38,6 +38,10 @@ public static class FileHelper
 
     public static T FindObj<T>(List<T>? list, int id)
     {
+        //create new T object
+        T objRemove = (T)Activator.CreateInstance(typeof(T));
+
+
         if (list == null)
         {
             return default(T);
@@ -49,16 +53,20 @@ public static class FileHelper
             return default(T);
         }
 
+        /*        // Find the object with the specified ID
+        return list.Find(obj => Convert.ToInt32(idProperty.GetValue(obj)) == id);*/
+
         foreach (var obj in list)
         {
             var objId = Convert.ToInt32(idProperty.GetValue(obj));
             if (objId == id)
             {
-                return obj;
+                objRemove = obj;
+                break;
             }
         }
 
-        return default(T);
+        return objRemove;
     }
 
 }

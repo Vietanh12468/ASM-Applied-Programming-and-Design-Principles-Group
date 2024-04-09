@@ -2,6 +2,7 @@
 using ASM2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Numerics;
@@ -44,34 +45,37 @@ namespace ASM2.Controllers
         public IActionResult Search()
         {
             List<Student>? students = FileHelper.ReadFileList<Student>("Data/students.json");
+            ViewBag.typeObj = "Student";
             ViewBag.users = students;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Search(string keyword, string role)
+        public IActionResult Search(string keyword, string typeObj)
         {
-            switch (role)
+            ViewBag.typeObj = typeObj;
+            switch (typeObj)
             {
                 case "Teacher":
                     List<Teacher>? teachers = FileHelper.ReadFileList<Teacher>("Data/teachers.json");
                     UserSearchHelper<Teacher> searchHelperTeacher = new UserSearchHelper<Teacher>();
                     List<Teacher> searchResultTeacher = searchHelperTeacher.SearchList(teachers, keyword);
                     ViewBag.users = searchResultTeacher;
-                    return View();
+                    break;
                 case "Admin":
                     List<Admin>? admins = FileHelper.ReadFileList<Admin>("Data/admins.json");
                     UserSearchHelper<Admin> searchHelperAdmin = new UserSearchHelper<Admin>();
                     List<Admin> searchResultAdmin = searchHelperAdmin.SearchList(admins, keyword);
                     ViewBag.users = searchResultAdmin;
-                    return View();
+                    break;
                 default:
                     List<Student>? students = FileHelper.ReadFileList<Student>("Data/students.json");
                     UserSearchHelper<Student> searchHelperStudent = new UserSearchHelper<Student>();
                     List<Student> searchResultStudent = searchHelperStudent.SearchList(students, keyword);
                     ViewBag.users = searchResultStudent;
-                    return View();
+                    break;
             }
+            return View();
         }
 
         [HttpPost]

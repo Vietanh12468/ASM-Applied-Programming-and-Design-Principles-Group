@@ -1,13 +1,5 @@
 [
   {
-    "id": 1,
-    "DOB": "1983-07-15",
-    "fullName": "Michael Johnson",
-    "email": "michaeljohnson@example.com",
-    "phone": "\u002B1 123-456-7890",
-    "gender": "Male"
-  },
-  {
     "id": 2,
     "DOB": "1979-03-20",
     "fullName": "Sarah Adams",
@@ -30,13 +22,5 @@
     "email": "emilythompson@example.com",
     "phone": "\u002B1 111-222-3333",
     "gender": "Female"
-  },
-  {
-    "id": 5,
-    "DOB": "1982-12-10",
-    "fullName": "Daniel Davis",
-    "email": "danieldavis@example.com",
-    "phone": "\u002B1 999-888-7777",
-    "gender": "Male"
   }
 ]

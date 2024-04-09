@@ -8,7 +8,7 @@ namespace ASM2.Helpers
         {
             List<T>? list = FileHelper.ReadFileList<T>(filepath);
             T objRemove = FileHelper.FindObj(list, id);
-            if (objRemove == null)
+            if (objRemove != null)
             {
                 list.Remove(objRemove);
                 FileHelper.AddToList(list, filepath);
