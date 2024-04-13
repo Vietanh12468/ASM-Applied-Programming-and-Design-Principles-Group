@@ -4,56 +4,120 @@
 }
 <div class="container main-container w-70">
     <div class="m-3">
-        <h1>Search</h1>
+        <h1>Create New Class</h1>
         <div class="row">
             <div class="col-sm-6">
-                @using (Html.BeginForm("SearchUser", "Class"))
+                @using (Html.BeginForm("SetObjForClass", "Class"))
                 {
+
+                    <input type="hidden" id="hideTeacherName" name="hideTeacherName" value="@ViewBag.hideTeacherName" />
+                    <input type="hidden" id="hideTeacherId" name="hideTeacherId" value="@ViewBag.hideTeacherId" />
+                    <input type="hidden" id="hideCourseName" name="hideCourseName" value="@ViewBag.hideCourseName" />
+                    <input type="hidden" id="typeObj" name="typeObj" value="@ViewBag.typeObj" />
                     <div class="input-group-append">
-                        <select class="btn btn-secondary" onchange="setSearch(this.value)">
-                            <option value="Student">Student</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Teacher">Teacher</option>
+                        <select class="btn btn-secondary" name="selectObj" id="selectObj" onchange="setSearch(this.value)">
+                            <option value="Student" selected="@(ViewBag.typeObj == "Student" ? "selected" : null)">Student</option>
+                            <option value="Course" selected="@(ViewBag.typeObj == "Course" ? "selected" : null)">Course</option>
+                            <option value="Teacher" selected="@(ViewBag.typeObj == "Teacher" ? "selected" : null)">Teacher</option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="hidden" id="searchType" name="searchType" value="Student" />
                         <input type="text" class="form-control" name="keyword" placeholder="Enter your search query" required="required" />
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Full Name</th>
-                                <th>DOB</th>
-                                <th>Major</th>
-                                <th>Add</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var user in ViewBag.users)
-                            {
+
+                    @if (ViewBag.typeobj == "Teacher") // Check the value of ViewBag.typeobj
+                    {
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td>@user.id</td>
-                                    <td>@user.fullName</td>
-                                    <td>@user.DOB</td>
-                                    <td>@user.major</td>
-                                    <th>
-                                        <div class="col-sm-2">
-                                            <button type="button" onclick="addTeacher('@user.id', '@user.fullName')" class="btn btn-primary">Add Teacher</button>
-                                        </div>
-                                    </th>
+                                    <th>ID</th>
+                                    <th>Full Name</th>
+                                    <th>DOB</th>
+                                    <th>Add</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in ViewBag.users)
+                                {
+                                    <tr>
+                                        <td>@user.id</td>
+                                        <td>@user.fullName</td>
+                                        <td>@user.DOB</td>
+                                        <td>
+                                            <div class="col-sm-2">
+                                                <button type="button" onclick="addTeacher('@user.id', '@user.fullName')" class="btn btn-primary">Add Teacher</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                    else if (ViewBag.typeobj == "Student" )
+                    {
+                        <table class="table" id="sourceTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Full Name</th>
+                                    <th>DOB</th>
+                                    <th>Add</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                }
+
+                                @foreach (var user in ViewBag.users)
+                                {
+                                    <tr>
+                                        <td>@user.id</td>
+                                        <td>@user.fullName</td>
+                                        <td>@user.DOB</td>
+                                        <td>
+                                            <div class="col-sm-2">
+                                                <button type="button" onclick="addStudent(@i)" class="btn btn-primary">Add Student</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else if (ViewBag.typeobj == "Course") 
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Add</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in ViewBag.users)
+                                {
+                                    <tr>
+                                        <td>@user.name</td>
+                                        <td>
+                                            <div class="col-sm-2">
+                                                <button type="button" onclick="addCourse('@user.name')" class="btn btn-primary">Add Course</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
                 }
             </div>
             <div class="col-sm-6">
-                @using (Html.BeginForm("SearchUser", "Class"))
+                @using (Html.BeginForm("Create", "Class"))
                 {
                     <div class="form-group row p-2">
                         @Html.LabelFor(m => m.name, "Name:", new { @class = "col-sm-2 col-form-label" })
@@ -64,14 +128,43 @@
                     <div class="form-group row p-2">
                         @Html.LabelFor(m => m.teacher, "Teacher:", new { @class = "col-sm-2 col-form-label" })
                         <div class="col-sm-10">
-                            @Html.TextBoxFor(m => m.teacher, new { @class = "form-control", @placeholder = "Teacher", @id = "teacher", @name = "teacher", required = "required", type = "text", @readonly = "readonly" })
+                            <input type="hidden" id="teacherId" name="teacherId" value="@ViewBag.hideTeacherId">
+                            <input class="form-control" type="text" id="teacherName" name="teacherName" readonly="readonly" required="required" value="@ViewBag.hideTeacherName">
                         </div>
                     </div>
                     <div class="form-group row p-2">
                         @Html.LabelFor(m => m.course, "Course:", new { @class = "col-sm-2 col-form-label" })
                         <div class="col-sm-10">
-                            @Html.TextBoxFor(m => m.course, new { @class = "form-control", @placeholder = "Course", @id = "course", @name = "course", required = "required", type = "text", @readonly = "readonly" })
+                            <input class="form-control" type="text" id="courseName" name="courseName" readonly="readonly" required="required" value="@ViewBag.hideCourseName">
                         </div>
+                    </div>
+                    <table class="table" id="destinationTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>DOB</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in ViewBag.students)
+                            {
+                                <tr>
+                                    <td>@user.id</td>
+                                    <td>@user.fullName</td>
+                                    <td>@user.DOB</td>
+                                    <td>
+                                        <div class="col-sm-2">
+                                            <button type="button" onclick="removeStudent('@user.id', '@user.fullName')" class="btn btn-primary">Remove Student</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <input type="submit" value="Create" class="btn btn-success" />
                     </div>
                 }
             </div>
@@ -81,10 +174,32 @@
 
 <script>
     function setSearch(value) {
-        document.getElementById("searchType").value = value;
+        document.getElementById("typeObj").value = value;
     }
     function addTeacher(id, name) {
-        var teacherInput = document.getElementById("teacher");
-        teacherInput.value = name4;
+        document.getElementById("teacherId").value = id;
+        document.getElementById("teacherName").value = name;
+        document.getElementById("hideTeacherName").value = name;
+        document.getElementById("hideTeacherId").value = id;
+    }
+    function addCourse(name) {
+        document.getElementById("courseName").value = name;
+        document.getElementById("hideCourseName").value = name;
+    }
+    function addStudent(i) {
+        // Get the source table
+        let sourceTable = document.getElementById('sourceTable');
+        let sourceRow = sourceTable.getElementsByTagName('tr')[i];
+
+        // Get the destination table
+        let destinationTable = document.getElementById('destinationTable');
+
+        // Clone the source row and its cells
+        let newRow = destinationTable.insertRow();
+        let sourceCells = sourceRow.cells;
+        for (let n = 0; n < sourceCells.length; n++) {
+            let newCell = newRow.insertCell();
+            newCell.innerHTML = sourceCells[n].innerHTML;
+        }
     }
 </script>

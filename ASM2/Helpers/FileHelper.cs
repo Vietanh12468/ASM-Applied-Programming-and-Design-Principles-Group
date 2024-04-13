@@ -12,7 +12,7 @@ public static class FileHelper
         string readText = File.ReadAllText(filePath);
         return JsonSerializer.Deserialize<List<T>>(readText);
     }
-    public static void AddToList<T>(List<T>? list, string filePath)
+    public static void AddToJson<T>(List<T>? list, string filePath)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string jsonString = JsonSerializer.Serialize(list, options);
@@ -39,34 +39,34 @@ public static class FileHelper
     public static T FindObj<T>(List<T>? list, int id)
     {
         //create new T object
-        T objRemove = (T)Activator.CreateInstance(typeof(T));
-
-
-        if (list == null)
-        {
-            return default(T);
-        }
-
+        T objFind = (T)Activator.CreateInstance(typeof(T));
         PropertyInfo idProperty = typeof(T).GetProperty("id");
-        if (idProperty == null || idProperty.PropertyType != typeof(int))
-        {
-            return default(T);
-        }
-
-        /*        // Find the object with the specified ID
-        return list.Find(obj => Convert.ToInt32(idProperty.GetValue(obj)) == id);*/
-
         foreach (var obj in list)
         {
             var objId = Convert.ToInt32(idProperty.GetValue(obj));
             if (objId == id)
             {
-                objRemove = obj;
+                objFind = obj;
                 break;
             }
         }
-
-        return objRemove;
+        return objFind;
+    }
+    public static T FindObj<T>(List<T>? list, string name)
+    {
+        //create new T object
+        T objFind = (T)Activator.CreateInstance(typeof(T));
+        PropertyInfo nameProperty = typeof(T).GetProperty("name");
+        foreach (var obj in list)
+        {
+            var objName = nameProperty.GetValue(obj);
+            if (string.Equals(objName, name))
+            {
+                objFind = obj;
+                break;
+            }
+        }
+        return objFind;
     }
 
 }

@@ -11,7 +11,7 @@ namespace ASM2.Helpers
             if (objRemove != null)
             {
                 list.Remove(objRemove);
-                FileHelper.AddToList(list, filepath);
+                FileHelper.AddToJson(list, filepath);
             }
         }
     }

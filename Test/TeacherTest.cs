@@ -31,7 +31,6 @@ namespace Test
             TestCreateNewUser_CompareTheResult(filePath, expectedName, expectedEmail, expectedDOB, expectedPhone, expectedGender);
         }
 
-        //Create Test Plan for Delete
         [Theory]
         [InlineData("Data/teachers.json", 6)]
         public void TestDelete1Object_ReturnsCorrectNumberOfObjects(string filePath, int idToDelete)

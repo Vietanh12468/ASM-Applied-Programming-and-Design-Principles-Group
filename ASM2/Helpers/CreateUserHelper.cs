@@ -13,7 +13,7 @@ namespace ASM2.Helpers
             T user = new T();
             user.CreateUser(id, DOB, fullname, email, phone, gender);
             listUsers.Add(user);
-            FileHelper.AddToList(listUsers, filePath);
+            FileHelper.AddToJson(listUsers, filePath);
         }
         public static void CreateUser<T>(string email, string fullname, string phone, string gender, DateOnly DOB, string major, string filePath) where T : Student, new()
         {
@@ -23,7 +23,7 @@ namespace ASM2.Helpers
             user.CreateUser(id, DOB, fullname, email, phone, gender);
             user.major = major;
             listUsers.Add(user);
-            FileHelper.AddToList(listUsers, filePath);
+            FileHelper.AddToJson(listUsers, filePath);
         }
     }
 }

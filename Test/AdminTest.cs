@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    [TestCaseOrderer("FullNameOfOrderStrategyHere", "OrderStrategyAssemblyName")]
     public class AdminTest : TestReadFile<Admin>
     {
         TestDeleteObject<Admin> testDeleteObject = new TestDeleteObject<Admin>();
