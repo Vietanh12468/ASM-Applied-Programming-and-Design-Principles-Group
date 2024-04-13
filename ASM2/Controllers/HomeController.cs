@@ -33,14 +33,13 @@ namespace ASM2.Controllers
         {
             return View();
         }
-        public class User
+       /* public class User
         {
             public string fullName { get; set; }
             public string email { get; set; }
+        }*/
 
-        }
-
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Login(User user)
         {
             // Search for the user in students.json
@@ -83,6 +82,6 @@ namespace ASM2.Controllers
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", fileName);
             var json = System.IO.File.ReadAllText(filePath);
             return JsonSerializer.Deserialize<List<User>>(json); 
-        }
+        }*/
     }
 }
