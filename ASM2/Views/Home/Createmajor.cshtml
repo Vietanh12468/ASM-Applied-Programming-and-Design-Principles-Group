@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Create Major";
+}
+
+<div class="container main-container w-50">
+    <div class="m-3">
+        <h1>Create Major</h1>
+        <div>
+            <form method="post" action="/Major/Create">
+                <div class="form-group row p-2">
+                    <label for="majorName" class="col-sm-2 col-form-label">Major Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="majorName" name="majorName" required>
+                    </div>
+                </div>
+                <!-- Add more fields as needed -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Create Major</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+}
