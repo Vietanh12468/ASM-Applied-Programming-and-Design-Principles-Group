@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "List of Students";
+}
+
+<div class="container main-container w-70">
+    <div class="m-3">
+        <h1>List of Students</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>DOB</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in ViewBag.students)
+            {
+                <tr>
+                    <td>@student.id</td>
+                    <td>@student.fullName</td>
+                    <td>@student.email</td>
+                    <td>@student.phone</td>
+                    <td>@student.DOB</td>
+                    <td>@student.gender</td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Detail", "Student", new { id = student.id })">View Detail</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

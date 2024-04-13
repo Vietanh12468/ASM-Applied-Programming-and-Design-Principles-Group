@@ -1,0 +1,18 @@
+﻿@model ASM2.Models.Class
+
+@{
+    ViewData["Title"] = "Class Detail";
+}
+
+<div class="container main-container w-70">
+    <div class="m-3">
+        <h1>Class Detail</h1>
+    </div>
+    <div>
+        <p><strong>ID:</strong> @Model.id</p>
+        <p><strong>Name:</strong> @Model.name</p>
+        <p><strong>Teacher:</strong> @Model.teacher.fullName</p>
+        <p><strong>Course:</strong> @Model.course.name</p>
+        <!-- Add more class details as needed -->
+    </div>
+</div>

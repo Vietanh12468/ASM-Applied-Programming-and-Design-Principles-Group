@@ -1,0 +1,21 @@
+﻿@model ASM2.Models.Student
+
+@{
+    ViewData["Title"] = "Student Detail";
+}
+
+<div class="container main-container w-70">
+    <div class="m-3">
+        <h1>Student Detail</h1>
+    </div>
+    <div>
+        <p><strong>ID:</strong> @Model.id</p>
+        <p><strong>Name:</strong> @Model.fullName</p>
+        <p><strong>Email:</strong> @Model.email</p>
+        <p><strong>Phone:</strong> @Model.phone</p>
+        <p><strong>DOB:</strong> @Model.DOB</p>
+        <p><strong>Gender:</strong> @Model.gender</p>
+        <p><strong>Major:</strong> @Model.major</p>
+    </div>
+</div>
+

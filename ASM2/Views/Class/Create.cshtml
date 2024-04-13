@@ -34,16 +34,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var user in ViewBag.users)
+                            @foreach (var teacher in ViewBag.teachers)
                             {
                                 <tr>
-                                    <td>@user.id</td>
-                                    <td>@user.fullName</td>
-                                    <td>@user.DOB</td>
-                                    <td>@user.major</td>
+                                    <td>@teacher.id</td>
+                                    <td>@teacher.fullName</td>
+                                    <td>@teacher.DOB</td>
+                                    <td>@teacher.major</td>
                                     <th>
                                         <div class="col-sm-2">
-                                            <button type="button" onclick="addTeacher('@user.id', '@user.fullName')" class="btn btn-primary">Add Teacher</button>
+                                            <button type="button" onclick="addTeacher('@teacher.id', '@teacher.fullName')" class="btn btn-primary">Add Teacher</button>
                                         </div>
                                     </th>
                                 </tr>
