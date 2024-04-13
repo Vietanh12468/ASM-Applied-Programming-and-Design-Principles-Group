@@ -65,7 +65,6 @@
             this.email = email;
             this.phone = phone;
             this.gender = gender;
-            this.major = major;
             this.DOB = DOB;
         }
     }
