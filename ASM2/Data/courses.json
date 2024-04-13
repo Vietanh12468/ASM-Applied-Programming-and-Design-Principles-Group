@@ -1,14 +1,17 @@
 [
   {
-    "name": "Introduction to Programming",
-    "credits": 3
+    "name": "Introduction to Programming"
   },
   {
-    "name": "Financial Accounting",
-    "credits": 4
+    "name": "Financial Accounting"
   },
   {
-    "name": "Graphic Design Fundamentals",
-    "credits": 3
+    "name": "Graphic Design Fundamentals"
+  },
+  {
+    "name": "qweq"
+  },
+  {
+    "name": "qweqsa"
   }
 ]

@@ -1,29 +1,20 @@
 [
   {
-    "name": "IT",
-    "courses": [
-      {
-        "name": "Introduction to Programming",
-        "credits": 3
-      }
-    ]
+    "name": "IT"
   },
   {
-    "name": "Business",
-    "courses": [
-      {
-        "name": "Financial Accounting",
-        "credits": 4
-      }
-    ]
+    "name": "Business"
   },
   {
-    "name": "Designer",
-    "courses": [
-      {
-        "name": "Graphic Design Fundamentals",
-        "credits": 3
-      }
-    ]
+    "name": "Designer"
+  },
+  {
+    "name": "21"
+  },
+  {
+    "name": "bs666"
+  },
+  {
+    "name": "xacv"
   }
 ]
