@@ -37,3 +37,10 @@ body {
 .options {
     background-color: #fdf8ee;
 }
+
+.custom-border {
+    border: 2px solid #ffffff; /* Set border color to white */
+    padding: 20px; /* Add padding for spacing */
+}
+
+
