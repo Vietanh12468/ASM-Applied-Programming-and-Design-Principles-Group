@@ -2,14 +2,59 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
+<div class="container main-container">
     <div class="text-center mt-5">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core" class="btn btn-primary">building Web apps with ASP.NET Core</a>.</p>
+        <h1 class="display-4">Welcome To BTEC FPT SIMS</h1>
     </div>
-    <div class="row justify-content-center mt-5">
+    <div class="row">
         <div class="col-md-6">
-            <p>To log in, click <strong><a href="@Url.Action("Login", "Home")" class="btn btn-primary">here</a></strong>.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <a class="nav-link active sidebar" href="#">
+                        News
+                    </a>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">News 1</a>
+                        </div>
+                    </div>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">News 2</a>
+                        </div>
+                    </div>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">News 3</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="nav-link active sidebar" href="#">
+                        Events
+                    </a>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">Event 1</a>
+                        </div>
+                    </div>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">Event 2</a>
+                        </div>
+                    </div>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="page1.html">Event 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <img src="path/to/your/image.jpg" class="card-img-top" alt="Image">
+            </div>
         </div>
     </div>
 </div>

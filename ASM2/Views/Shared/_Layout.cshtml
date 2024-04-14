@@ -70,50 +70,33 @@
                     <ul class="nav flex-column">
                         <li class="nav-item p-1">
                             <div class="options">
-                                <a class="nav-link active sidebar" href="#">
-                                    Student option
-                                </a>
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create user</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Search">Search</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Class" asp-action="Create">Create class</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="CourseAndMajor" asp-action="CreateCourse">Create Course</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="CourseAndMajor" asp-action="CreateMajor">Create Major</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item p-1">
-                            <div class="options">
-                                <a class="nav-link active sidebar" href="#">
-                                    Admin option
-                                </a>
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Logout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Logout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Logout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Logout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Logout</a>
-                                    </li>
-                                </ul>
+                                @if (String.Equals(userRole, "Admin"))
+                                {
+                                    <a class="nav-link active sidebar" href="#">
+                                        Admin option
+                                    </a>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create user</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Search">Search User</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Class" asp-action="Create">Create class</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="CourseAndMajor" asp-action="CreateCourse">Create Course</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="CourseAndMajor" asp-action="CreateMajor">Create Major</a>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a class="nav-link active sidebar" asp-area="" asp-controller="Home" asp-action="Login">Login To Use SIMS</a>
+                                }
                             </div>
                         </li>
                     </ul>
