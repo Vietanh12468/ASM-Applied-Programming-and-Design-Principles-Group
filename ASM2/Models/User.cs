@@ -8,6 +8,7 @@
         string email { get; set; }
         string phone { get; set; }
         string gender { get; set; }
+        string password { get; set; }
         void CreateUser(int id,  DateOnly DOB, string fullName, string email, string phone, string gender);
     }
 
@@ -19,6 +20,7 @@
         public string email { get; set; }
         public string phone { get; set; }
         public string gender { get; set; }
+        public string password { get; set; }
         public void CreateUser(int id, DateOnly DOB, string fullName, string email, string phone, string gender)
         {
             this.id = id;
@@ -27,6 +29,7 @@
             this.phone = phone;
             this.gender = gender;
             this.DOB = DOB;
+            this.password = fullName;
         }
     }
 
@@ -38,6 +41,7 @@
         public string email { get; set; }
         public string phone { get; set; }
         public string gender { get; set; }
+        public string password { get; set; }
         public void CreateUser(int id, DateOnly DOB, string fullName, string email, string phone, string gender)
         {
             this.id = id;
@@ -46,6 +50,7 @@
             this.phone = phone;
             this.gender = gender;
             this.DOB = DOB;
+            this.password = fullName;
         }
     }
 
@@ -58,6 +63,7 @@
         public string phone { get; set; }
         public string gender { get; set; }
         public string major { get; set; }
+        public string password { get; set; }
         public void CreateUser(int id, DateOnly DOB, string fullName, string email, string phone, string gender)
         {
             this.id = id;
@@ -65,8 +71,8 @@
             this.email = email;
             this.phone = phone;
             this.gender = gender;
-            this.major = major;
             this.DOB = DOB;
+            this.password = fullName;
         }
     }
 }

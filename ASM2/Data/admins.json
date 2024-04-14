@@ -5,7 +5,8 @@
     "fullName": "John Doe",
     "email": "johndoe@example.com",
     "phone": "\u002B1 123-456-7890",
-    "gender": "Male"
+    "gender": "Male",
+    "password": "John Doe"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "fullName": "Jane Smith",
     "email": "janesmith@example.com",
     "phone": "\u002B1 987-654-3210",
-    "gender": "Female"
+    "gender": "Female",
+    "password": "Jane Smith"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "fullName": "Robert Johnson",
     "email": "robertjohnson@example.com",
     "phone": "\u002B1 555-123-4567",
-    "gender": "Male"
+    "gender": "Male",
+    "password": "Robert Johnson"
   }
 ]

@@ -69,4 +69,27 @@ public static class FileHelper
         return objFind;
     }
 
+    public static T FindObjByEmail<T>(List<T>? list, string email)
+    {
+        T objFind = default(T);
+        PropertyInfo emailProperty = typeof(T).GetProperty("email");
+        bool found = false;
+        foreach (var obj in list)
+        {
+            var objEmail = emailProperty.GetValue(obj);
+            if (string.Equals(objEmail, email))
+            {
+                objFind = obj;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            objFind = default(T);
+        }
+
+        return objFind;
+    }
 }

@@ -5,7 +5,8 @@
     "fullName": "Michael Johnson",
     "email": "michaeljohnson@example.com",
     "phone": "\u002B1 123-456-7890",
-    "gender": "Male"
+    "gender": "Male",
+    "password": "Michael Johnson"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "fullName": "Sarah Adams",
     "email": "sarahadams@example.com",
     "phone": "\u002B1 987-654-3210",
-    "gender": "Female"
+    "gender": "Female",
+    "password": "Sarah Adams"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "fullName": "David Wilson",
     "email": "davidwilson@example.com",
     "phone": "\u002B1 555-123-4567",
-    "gender": "Male"
+    "gender": "Male",
+    "password": "David Wilson"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "fullName": "Emily Thompson",
     "email": "emilythompson@example.com",
     "phone": "\u002B1 111-222-3333",
-    "gender": "Female"
+    "gender": "Female",
+    "password": "Emily Thompson"
   },
   {
     "id": 5,
@@ -37,6 +41,7 @@
     "fullName": "Daniel Davis",
     "email": "danieldavis@example.com",
     "phone": "\u002B1 999-888-7777",
-    "gender": "Male"
+    "gender": "Male",
+    "password": "Daniel Davis"
   }
 ]
