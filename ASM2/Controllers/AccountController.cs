@@ -47,6 +47,7 @@ namespace ASM2.Controllers
             List<Student>? students = FileHelper.ReadFileList<Student>("Data/students.json");
             ViewBag.typeObj = "Student";
             ViewBag.users = students;
+            ViewBag.role = "Student";
             return View();
         }
 
@@ -61,18 +62,21 @@ namespace ASM2.Controllers
                     UserSearchHelper<Teacher> searchHelperTeacher = new UserSearchHelper<Teacher>();
                     List<Teacher> searchResultTeacher = searchHelperTeacher.SearchList(teachers, keyword);
                     ViewBag.users = searchResultTeacher;
+                    ViewBag.role = "Teacher";
                     break;
                 case "Admin":
                     List<Admin>? admins = FileHelper.ReadFileList<Admin>("Data/admins.json");
                     UserSearchHelper<Admin> searchHelperAdmin = new UserSearchHelper<Admin>();
                     List<Admin> searchResultAdmin = searchHelperAdmin.SearchList(admins, keyword);
                     ViewBag.users = searchResultAdmin;
+                    ViewBag.role = "Admin";
                     break;
                 default:
                     List<Student>? students = FileHelper.ReadFileList<Student>("Data/students.json");
                     UserSearchHelper<Student> searchHelperStudent = new UserSearchHelper<Student>();
                     List<Student> searchResultStudent = searchHelperStudent.SearchList(students, keyword);
                     ViewBag.users = searchResultStudent;
+                    ViewBag.role = "Student";
                     break;
             }
             return View();
@@ -95,6 +99,40 @@ namespace ASM2.Controllers
                     DeleteHelper<Student> deleteHelperStudent = new DeleteHelper<Student>();
                     deleteHelperStudent.DeleteObj("Data/students.json", id);
                     return RedirectToAction("Search");
+            }
+        }
+        [HttpPost]
+        public IActionResult Detail(int id, string typeObj)
+        {
+            switch (typeObj)
+            {
+                case "Teacher":
+                    List<Teacher> teachers = FileHelper.ReadFileList<Teacher>("Data/teachers.json");
+                    Teacher teacher = FileHelper.FindObj(teachers, id);
+                    if (teacher == null)
+                    {
+                        return NotFound();
+                    }
+                    ViewBag.role = "Teacher";
+                    return View(teacher);
+                case "Admin":
+                    List<Admin> admins = FileHelper.ReadFileList<Admin>("Data/admins.json");
+                    Admin admin = FileHelper.FindObj(admins, id);
+                    if (admin == null)
+                    {
+                        return NotFound();
+                    }
+                    ViewBag.role = "Admin";
+                    return View(admin);
+                default:
+                    List<Student> students = FileHelper.ReadFileList<Student>("Data/students.json");
+                    Student student = FileHelper.FindObj(students, id);
+                    if (student == null)
+                    {
+                        return NotFound();
+                    }
+                    ViewBag.role = "Student";
+                    return View(student);
             }
         }
     }
